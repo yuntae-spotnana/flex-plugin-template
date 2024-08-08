@@ -57,7 +57,7 @@ const getRoutingParams = (
 
   return {
     properties: {
-      task_channel_unique_name: taskChannelName,
+      task_channel_unique_name: 'chat',
       workspace_sid: context.TWILIO_FLEX_WORKSPACE_SID,
       workflow_sid: context.TWILIO_FLEX_CHAT_TRANSFER_WORKFLOW_SID,
       attributes: newAttributes,
