@@ -32,9 +32,6 @@
         "enabled": true,
         "cold_transfer": true,
         "multi_participant": true
-      },
-      "chat_transfer": {
-        "enabled": false
       }
     }
   }
