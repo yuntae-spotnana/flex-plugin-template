@@ -110,13 +110,13 @@ exports.handler = prepareFlexFunction(requiredParameters, async (context, event,
       }),
     );
 
-    console.log("After create interaction", success, message, participantInvite);
+    console.log('After create interaction', success, message, participantInvite);
     // if this failed bail out so we don't remove the agent from the conversation and no one else joins
     if (!success) {
       return handleError(message);
     }
 
-    console.log("Before removeFlexInteractionParticipantSid", removeFlexInteractionParticipantSid);
+    console.log('Before removeFlexInteractionParticipantSid', removeFlexInteractionParticipantSid);
 
     if (removeFlexInteractionParticipantSid) {
       await twilioExecute(context, (client) =>
