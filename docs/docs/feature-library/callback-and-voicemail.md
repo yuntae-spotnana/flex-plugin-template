@@ -79,7 +79,7 @@ Creating a voicemail involves the same setup as the example above, however the f
 
 If you wish to enable transcriptions and show the transcription text on the voicemail task, you can invoke the create-callback function from the Transcription Callback URL on the Record Voicemail widget. Just be sure to include the required params in the URL. e.g.
 
-`https://custom-flex-extensions-serverless-XXXX-dev.twil.io/features/callback-and-voicemail/studio/create-callback?numberToCall={{trigger.call.From | url_encode}}&numberToCallFrom={{trigger.call.To | url_encode}}&flexFlowSid={{flow.sid}}`
+`https://custom-conversation-transfer-XXXX-dev.twil.io/features/callback-and-voicemail/studio/create-callback?numberToCall={{trigger.call.From | url_encode}}&numberToCallFrom={{trigger.call.To | url_encode}}&flexFlowSid={{flow.sid}}`
 
 NOTE: `RecordingSid` and `RecordingUrl` are already part of the transcription callback event, along with `TranscriptionSid` and `TranscriptionText`. The use of the `url_encode` [Liquid Template Filter](https://www.twilio.com/docs/studio/user-guide/liquid-template-language#standard-filters) allows the leading '+' of the to/from phone numbers to be preserved.
 
@@ -93,7 +93,7 @@ If you also want to offer up a post-IVR "wait experience" to your customers - to
 
 Simply set this function's URL as **_Hold Music URL_** in the Studio Send to Flex widget, or as the `waitUrl` if using the `<Enqueue>` TwiML verb. e.g.
 
-`https://custom-flex-extensions-serverless-XXXX-dev.twil.io/features/callback-and-voicemail/studio/wait-experience`
+`https://custom-conversation-transfer-XXXX-dev.twil.io/features/callback-and-voicemail/studio/wait-experience`
 
 The in-queue logic is designed to maintain the initial task's workflow, attributes, etc, so that callback requests follow the same routing logic as the initial task. However, there are customization points within the `wait-experience` function allowing you to override these, such as specifying an alternate workflow or task channel.
 

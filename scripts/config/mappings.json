@@ -1,7 +1,7 @@
 {
   "SERVERLESS_SID": {
     "type": "serverless-service",
-    "name": "custom-flex-extensions-serverless"
+    "name": "custom-conversation-transfer"
   },
   "SERVERLESS_ENV_SID": {
     "type": "serverless-environment",
@@ -10,7 +10,7 @@
   },
   "SERVERLESS_DOMAIN": {
     "type": "serverless-domain",
-    "name": "custom-flex-extensions-serverless"
+    "name": "custom-conversation-transfer"
   },
   "SERVERLESS_CALLBACK_FUNCTION_SID": {
     "type": "serverless-function",
