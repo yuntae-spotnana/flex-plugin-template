@@ -1,6 +1,7 @@
 {
   "name": "custom-conversation-transfer",
   "version": "0.0.0",
+  "description": "Add email support for conversation transfer plugin",
   "private": true,
   "scripts": {
     "test": "echo 'Tests to come'; exit 1",

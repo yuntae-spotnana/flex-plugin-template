@@ -53,6 +53,7 @@ const getRoutingParams = (
       conversation_id: conversationId,
     },
   };
+  console.log('taskChannelName', taskChannelName);
 
   return {
     properties: {
