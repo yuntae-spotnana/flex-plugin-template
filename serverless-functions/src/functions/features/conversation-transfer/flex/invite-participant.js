@@ -53,11 +53,10 @@ const getRoutingParams = (
       conversation_id: conversationId,
     },
   };
-  console.log('taskChannelName', taskChannelName);
 
   return {
     properties: {
-      task_channel_unique_name: 'chat',
+      task_channel_unique_name: taskChannelName,
       workspace_sid: context.TWILIO_FLEX_WORKSPACE_SID,
       workflow_sid: context.TWILIO_FLEX_CHAT_TRANSFER_WORKFLOW_SID,
       attributes: newAttributes,
@@ -110,13 +109,10 @@ exports.handler = prepareFlexFunction(requiredParameters, async (context, event,
       }),
     );
 
-    console.log('After create interaction', success, message, participantInvite);
     // if this failed bail out so we don't remove the agent from the conversation and no one else joins
     if (!success) {
       return handleError(message);
     }
-
-    console.log('Before removeFlexInteractionParticipantSid', removeFlexInteractionParticipantSid);
 
     if (removeFlexInteractionParticipantSid) {
       await twilioExecute(context, (client) =>
