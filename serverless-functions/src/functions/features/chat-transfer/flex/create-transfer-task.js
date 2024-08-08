@@ -45,6 +45,7 @@ exports.handler = prepareFlexFunction(requiredParameters, async (context, event,
     const workflowSid = overriddenWorkflowSid || process.env.TWILIO_FLEX_CHAT_TRANSFER_WORKFLOW_SID;
     const timeout = overriddenTimeout || 86400;
     const priority = overriddenPriority || 0;
+    console.log('taskChannelName', taskChannelName);
 
     // setup the new task attributes based on the old
     const originalTaskAttributes = JSON.parse(jsonAttributes);

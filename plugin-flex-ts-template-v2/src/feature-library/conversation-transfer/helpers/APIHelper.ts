@@ -29,6 +29,7 @@ export interface TransferRESTPayload {
   flexInteractionSid: string; // KDxxx sid for inteactions API
   flexInteractionChannelSid: string; // UOxxx sid for interactions API
   removeFlexInteractionParticipantSid: string; // UTxxx sid for interactions API for the transferrring agent to remove them from conversation
+  taskChannelName: string;
 }
 
 const _getMyParticipantSid = (participants: any): string => {
@@ -158,6 +159,8 @@ export const buildInviteParticipantAPIPayload = async (
     }
   }
 
+  const taskChannelName = task.taskChannelUniqueName;
+
   return {
     taskSid,
     conversationId,
@@ -170,6 +173,7 @@ export const buildInviteParticipantAPIPayload = async (
     flexInteractionSid,
     flexInteractionChannelSid,
     removeFlexInteractionParticipantSid,
+    taskChannelName
   };
 };
 
@@ -197,6 +201,7 @@ class ChatTransferService extends ApiService {
       flexInteractionSid: encodeURIComponent(requestPayload.flexInteractionSid),
       flexInteractionChannelSid: encodeURIComponent(requestPayload.flexInteractionChannelSid),
       removeFlexInteractionParticipantSid: encodeURIComponent(requestPayload.removeFlexInteractionParticipantSid),
+      taskChannelName: encodeURIComponent(requestPayload.taskChannelName)
     };
 
     return this.fetchJsonWithReject<TransferRESTResponse>(

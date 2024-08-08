@@ -39,6 +39,7 @@ const getRoutingParams = (
   transferTargetSid,
   transferQueueName,
   workersToIgnore,
+  taskChannelName,
 ) => {
   const originalTaskAttributes = JSON.parse(jsonAttributes);
   const newAttributes = {
@@ -55,7 +56,7 @@ const getRoutingParams = (
 
   return {
     properties: {
-      task_channel_unique_name: 'chat',
+      task_channel_unique_name: taskChannelName,
       workspace_sid: context.TWILIO_FLEX_WORKSPACE_SID,
       workflow_sid: context.TWILIO_FLEX_CHAT_TRANSFER_WORKFLOW_SID,
       attributes: newAttributes,
@@ -85,6 +86,7 @@ exports.handler = prepareFlexFunction(requiredParameters, async (context, event,
       flexInteractionSid,
       flexInteractionChannelSid,
       removeFlexInteractionParticipantSid,
+      taskChannelName,
     } = event;
 
     const routingParams = getRoutingParams(
@@ -94,6 +96,7 @@ exports.handler = prepareFlexFunction(requiredParameters, async (context, event,
       transferTargetSid,
       transferQueueName,
       workersToIgnore,
+      taskChannelName,
     );
 
     const {
