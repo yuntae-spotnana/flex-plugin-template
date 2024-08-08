@@ -168,6 +168,7 @@ class ChatTransferService extends ApiService {
       transferTargetSid: encodeURIComponent(transferTargetSid),
       transferQueueName: encodeURIComponent(queueName),
       ignoreWorkerContactUri: encodeURIComponent(contact_uri),
+      taskChannelName: encodeURIComponent(task.taskChannelUniqueName)
     };
 
     return this.fetchJsonWithReject<CreateTransferTaskResponse>(
